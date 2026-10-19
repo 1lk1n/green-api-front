@@ -1,0 +1,129 @@
+.screen {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.card {
+  width: min(400px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  padding: 32px 24px 24px;
+  border-radius: var(--radius-xl);
+  background: var(--background-primary);
+  text-align: center;
+}
+
+.card > svg {
+  align-self: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.subtitle {
+  margin: -8px 0 8px;
+  color: var(--text-secondary);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.label {
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--text-secondary);
+}
+
+.input {
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+  font-size: 16px;
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input:focus-visible {
+  border-color: var(--button-primary);
+  box-shadow: none;
+}
+
+.hint {
+  margin: 6px 0 0;
+  text-align: left;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: var(--text-tertiary);
+}
+
+.advanced {
+  text-align: left;
+}
+
+.advanced summary {
+  width: fit-content;
+  border-radius: 4px;
+  color: var(--text-themed);
+  cursor: pointer;
+}
+
+.advanced[open] summary {
+  margin-bottom: 12px;
+}
+
+.error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-m);
+  background: var(--error-background);
+  color: var(--error-text);
+  text-align: left;
+}
+
+.submit {
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-l);
+  background: var(--button-primary);
+  color: var(--button-primary-contrast);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--button-primary-hover);
+}
+
+.submit:active:not(:disabled) {
+  background: var(--button-primary-pressed);
+}
+
+.submit:disabled {
+  background: var(--button-primary-disabled);
+}
+
+.note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--text-tertiary);
+}

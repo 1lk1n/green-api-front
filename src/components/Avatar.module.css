@@ -1,0 +1,14 @@
+.avatar {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--avatar-from), var(--avatar-to));
+  color: #fff;
+  font-size: calc(var(--avatar-size) * 0.36);
+  font-weight: 600;
+  letter-spacing: 0;
+  user-select: none;
+}

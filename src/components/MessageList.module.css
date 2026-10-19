@@ -1,0 +1,140 @@
+.list {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Short conversations sit at the bottom, next to the composer. */
+.list > :first-child {
+  margin-top: auto;
+}
+
+.empty {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.day {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 4px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+
+.row[data-first] {
+  margin-top: 8px;
+}
+
+.row[data-outgoing] {
+  align-items: flex-end;
+}
+
+.bubble {
+  --meta-color: var(--bubble-incoming-meta);
+  position: relative;
+  max-width: min(560px, 85%);
+  padding: 6px 12px 7px;
+  border-radius: var(--radius-bubble);
+  background: var(--bubble-incoming);
+  color: var(--bubble-incoming-text);
+}
+
+.row[data-outgoing] .bubble {
+  --meta-color: var(--bubble-outgoing-meta);
+  background: var(--bubble-outgoing);
+  color: var(--bubble-outgoing-text);
+}
+
+/* Corners facing a neighbour in the same stack are tighter, as in MAX. */
+.row:not([data-outgoing]):not([data-first]) .bubble {
+  border-top-left-radius: var(--radius-bubble-stack);
+}
+
+.row:not([data-outgoing]):not([data-last]) .bubble {
+  border-bottom-left-radius: var(--radius-bubble-stack);
+}
+
+.row[data-outgoing]:not([data-first]) .bubble {
+  border-top-right-radius: var(--radius-bubble-stack);
+}
+
+.row[data-outgoing]:not([data-last]) .bubble {
+  border-bottom-right-radius: var(--radius-bubble-stack);
+}
+
+.author {
+  margin: 0 0 2px;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--bubble-author);
+}
+
+.text {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Reserves room on the last line for the absolutely positioned time and status. */
+.metaSpacer {
+  display: inline-block;
+  width: 40px;
+}
+
+.row[data-outgoing] .metaSpacer {
+  width: 58px;
+}
+
+.meta {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: var(--meta-color);
+  user-select: none;
+}
+
+.status {
+  display: inline-flex;
+}
+
+.status[data-status='read'] {
+  color: var(--bubble-outgoing-status);
+}
+
+.status[data-status='failed'] {
+  color: var(--text-negative);
+}
+
+.error {
+  max-width: min(560px, 85%);
+  margin: 4px 0 0;
+  padding: 2px 8px;
+  border-radius: var(--radius-s);
+  background: var(--capsule-background);
+  color: var(--text-negative);
+  font-size: 13px;
+  line-height: 18px;
+}

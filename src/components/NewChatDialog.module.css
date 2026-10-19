@@ -1,0 +1,123 @@
+.dialog {
+  width: min(400px, calc(100% - 32px));
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-xl);
+  background: var(--background-primary);
+  color: var(--text-primary);
+}
+
+.dialog::backdrop {
+  background: var(--background-overlay);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--icon-secondary);
+}
+
+.close:hover {
+  background: var(--background-tertiary);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--text-secondary);
+}
+
+.input {
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+  font-size: 16px;
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input:focus-visible {
+  border-color: var(--button-primary);
+  box-shadow: none;
+}
+
+.input[aria-invalid] {
+  border-color: var(--text-negative);
+}
+
+.hint {
+  margin: -4px 0 0;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: var(--text-tertiary);
+}
+
+.error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-m);
+  background: var(--error-background);
+  color: var(--error-text);
+}
+
+.submit {
+  height: 48px;
+  margin-top: 4px;
+  border: none;
+  border-radius: var(--radius-l);
+  background: var(--button-primary);
+  color: var(--button-primary-contrast);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--button-primary-hover);
+}
+
+.submit:active:not(:disabled) {
+  background: var(--button-primary-pressed);
+}
+
+.submit:disabled {
+  background: var(--button-primary-disabled);
+}
